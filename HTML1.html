@@ -8,73 +8,28 @@
 
     <title> A Title </title>
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="CSS.css">
+    <script src="Javascript.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    
 
 </head>
 
 <body>
 
-    <h1> A Header1 </h1>
-    <p>
-        ---p---
-    </p>
+    <h1> Data Visualisation Webpage </h1>
+
+    <h2> Females' Willingness to discuss about Health Issues with direct supervisors</h2>
+    <p id="female_donut"> </p>
+
+    <br>
+    <br>
+    
+    <h2> People living with mental health issues in USA (2014) </h2>
+    <p id="usa_map"> </p>
 
     <script>
-        // Javascript Codes
-        d3.csv("Datasets/Book1.csv", function(data) {
-
-        var w = 300;
-        var h = 300;
-
-        var svg = d3.select("body")
-                    .append("svg")
-                    .attr("width", w)
-                    .attr("height", h);
-
-        // outer radius will be specified according to the size of the SVG (i.e., using w).
-        var outerRadius = w/2;
-        //inner radius are set to 50 to demonstrate the donut pie chart
-        var innerRadius = w/4;
-
-        var arc = d3.arc()
-                    .outerRadius(outerRadius)
-                    .innerRadius(innerRadius);
-
-        var pie = d3.pie()
-                     .sort(null)
-                     .value(function(d) {return d.count;});
-
-         var arcs = svg.selectAll("g.arc")
-                       .data(pie(data))
-                       .enter()
-                       .append("g")
-                       .attr("class", "arc")
-                       .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
-
-         var color = d3.scaleOrdinal(d3.schemeCategory10);
-
-             arcs.append("path")
-                 .attr("d", arc)
-                 .attr("fill", function(d) {
-                   return color(d.data.willingness);
-                 })
-                 .attr("d", function(d, i) {
-                   return arc(d, i);
-                 });
-             
-         arcs.append("text")
-             .text(function(d) {
-               return d.data.willingness;
-             })
-             .attr("transform", function(d) {
-               return "translate(" + arc.centroid(d) + ")";
-             })
-             .attr("text-anchor", "middle") //makes the text place at middle
-             .attr("font-family", "sans-serif")
-             .attr("font-size", "14px")
-             .attr("font-weight", "bold");
-           });
+      // Javascript Codes in Javascript.js!!!
     </script>
 
     <br>
