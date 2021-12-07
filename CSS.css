@@ -17,9 +17,16 @@ hr.solid{
 
 h1{
     text-align: center;
+    font-size: 40px;
+}
+
+h2{
+    font-size: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 h3{
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
 }
 
@@ -37,25 +44,23 @@ h3{
 }
 
 input[type=button]{
-    background-color:#008080;
+    background-color:#2C7BB6;
     border: none;
 	border-radius:42px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:Arial, Helvetica, sans-serif;
 	font-size: 17px;
 	padding: 5px 15px;
-	text-shadow: 0px 1px 0px #085257;
 }
 
 input[type=button]:hover{
-    background-color:#00bdad;
+    background-color:#08306B;
 }
 
 input[type=button]:focus{
-    background-color:#00bdad;
-    text-shadow: none;
+    background-color:#08306B;
 }
 
 #usa_map{

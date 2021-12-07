@@ -373,7 +373,7 @@ function world_bar()
         .attr("width", function(d) { return xScale(d.Count); })
         .attr("y", function(d) { return yScale(d.Country); })
         .attr("height", yScale.bandwidth())
-        .attr("fill", "teal");
+        .attr("fill", "#2C7BB6");
         
     /* IN-LINE TEXT
     svg.selectAll("text")
