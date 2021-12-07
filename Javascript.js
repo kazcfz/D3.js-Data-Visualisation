@@ -5,8 +5,8 @@ function female_donut()
   // Loads 2016 by default
   d3.csv("Datasets/female_willingness_2016.csv", function(data)
   {
-    var w = 300;
-    var h = 300;
+    var w = 400;
+    var h = 400;
 
     var svg = d3.select("#female_donut")
                 .append("svg")
@@ -104,7 +104,9 @@ function female_donut()
                   .attr("class", "arc")
                   .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    //var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var color = d3.scaleOrdinal()
+                  .range(['rgb(44,123,182)','rgb(244,109,67)','rgb(116,173,209)','rgb(171,217,233)']);
 
     arcs.append("path")
         .attr("d", arc)
@@ -127,7 +129,7 @@ function female_donut()
         })
         .attr("text-anchor", "middle") //makes the text place at middle
         .attr("font-family", "sans-serif")
-        .attr("font-size", "14px")
+        .attr("font-size", "16px")
         .attr("font-weight", "bold");
 
 
@@ -175,15 +177,14 @@ function female_donut()
     });
 }
 
-
 // ===== MALES' WILLIGNESS to discuss about Health Issues with direct supervisors  (DONUT) =====
 function male_donut()
 {
   // Loads 2016 by default
   d3.csv("Datasets/male_willingness_2016.csv", function(data)
   {
-    var w = 300;
-    var h = 300;
+    var w = 400;
+    var h = 400;
 
     var svg = d3.select("#male_donut")
                 .append("svg")
@@ -280,7 +281,9 @@ function male_donut()
                   .attr("class", "arc")
                   .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    //var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var color = d3.scaleOrdinal()
+                  .range(['rgb(44,123,182)','rgb(244,109,67)','rgb(116,173,209)','rgb(171,217,233)']);
 
     arcs.append("path")
         .attr("d", arc)
@@ -303,11 +306,96 @@ function male_donut()
         })
         .attr("text-anchor", "middle") //makes the text place at middle
         .attr("font-family", "sans-serif")
-        .attr("font-size", "14px")
+        .attr("font-size", "16px")
         .attr("font-weight", "bold");
   });
 }
 
+// ===== PEOPLE IN WORLD (HORIZONTAL BAR) =====
+function world_bar()
+{
+  d3.csv("Datasets/world_bar.csv", function(data) {
+    var w = 1600;  //width
+    var h = 1100;  //height
+    var padding = 155;  //padding
+
+    // Store data in dataset
+    var dataset = [];
+    dataset = data;
+
+    // xScale (Count value)
+    var xScale = d3.scaleLinear()
+                   .domain([0, d3.max(dataset, function (d){ return parseFloat(d.Count); })])
+                   .range([0, w]);
+
+    // yScale (Country)
+    var yScale = d3.scaleBand()
+                  .domain(dataset.map(function (d) { return d.Country; }))
+                  .range([0, h])
+                  .padding(0.2);
+
+    // Create the SVG
+    var svg = d3.select("#world_bar")
+                .append("svg")
+                .attr("width", w+175)
+                .attr("height", h+20);
+
+    // x-axis for Value
+    var xAxis = d3.axisBottom()
+                  .scale(xScale)
+                  .ticks(16);
+
+    // y-axis for Countries
+    var yAxis = d3.axisLeft()
+                  .scale(yScale);
+
+    // appends x-axis
+    svg.append("g")
+        .attr("transform", "translate(" + padding + "," + h + ")")
+        .call(xAxis)
+        .selectAll("text")
+          .style("font-size", "13px");
+
+    // appends y-axis
+    svg.append("g")
+        .attr("transform", "translate(" + padding + ", 0)")
+        .call(yAxis)
+        .selectAll("text")
+          .style("font-size", "13px");
+
+    // Draws bars in the chart
+    svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("class", "bar")
+        .attr("x", padding+1 + xScale(0))
+        .attr("width", function(d) { return xScale(d.Count); })
+        .attr("y", function(d) { return yScale(d.Country); })
+        .attr("height", yScale.bandwidth())
+        .attr("fill", "teal");
+        
+    /* IN-LINE TEXT
+    svg.selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function(d){
+            return d;
+        })
+        .attr("x", function(d, i) {
+          return h - xScale(d) + 14; //bring labels one pixel up for better spacing
+        })
+        .attr("y", function(d) {
+          return yScale(i) + yScale.bandwidth()/2;  //calculate the x position by setting it to the left edge of each bar plus half the bar width
+        })
+        .attr("text-anchor", "middle") //place text at middle
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "13px")
+        .attr("fill", "black");
+        */
+  })
+}
 
 // ===== PEOPLE IN USA STATES (MAP) =====
 function usa_map()
@@ -315,7 +403,7 @@ function usa_map()
   // Load data from CSV
   d3.csv("Datasets/usstates.csv", function(data)
   {
-    var w = 700;
+    var w = 850;
     var h = 500;
     
     // Gives the map colours (this range is Purple)
@@ -323,9 +411,9 @@ function usa_map()
                           .range(['rgb(247,251,255)','rgb(222,235,247)','rgb(198,219,239)','rgb(158,202,225)','rgb(107,174,214)','rgb(66,146,198)','rgb(33,113,181)','rgb(8,81,156)','rgb(8,48,107)']);
     
     var projection = d3.geoMercator()
-                       .center([-92.5, 41])
+                       .center([-96, 38.5])
                        .translate([w/2, h/2])
-                       .scale(670);
+                       .scale(800);
     
     var path = d3.geoPath()
                  .projection(projection);
@@ -388,6 +476,7 @@ function usa_map()
 function init(){
     female_donut();
     male_donut();
+    world_bar();
     usa_map();
 }
 
