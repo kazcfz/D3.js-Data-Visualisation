@@ -528,6 +528,7 @@ function Diagnosed_StackedBar(){
 // ===== WORKERS FORMALLY DISCUSS MENTAL HEALTH IN WORKPLACE (PIE) =====
 function campaign_pie()
 {
+  document.getElementById("formaldiscussYear").innerHTML = "(2016)"; //set to 2016 by default
   // Loads 2016 by default
   d3.csv("Datasets/Campaign_2016.csv", function(data)
   {
@@ -555,6 +556,7 @@ function campaign_pie()
     {
       d3.select("#campaign_2016")
             .on("click", function(){
+              document.getElementById("formaldiscussYear").innerHTML = "(2016)";
               update(data);
             });
     });
@@ -564,6 +566,7 @@ function campaign_pie()
     {
       d3.select("#campaign_2017")
             .on("click", function(){
+              document.getElementById("formaldiscussYear").innerHTML = "(2017)";
               update(data);
             });
     });
@@ -573,6 +576,7 @@ function campaign_pie()
     {
       d3.select("#campaign_2018")
             .on("click", function(){
+              document.getElementById("formaldiscussYear").innerHTML = "(2018)";
               update(data);
             });
     });
@@ -582,6 +586,7 @@ function campaign_pie()
     {
       d3.select("#campaign_2019")
             .on("click", function(){
+              document.getElementById("formaldiscussYear").innerHTML = "(2019)";
               update(data);
             });
     });
@@ -717,6 +722,7 @@ function campaign_pie()
 // ===== MENTAL HEALTH BENEFITS COVERAGE IN WORKPLACE (PIE) =====
 function coverage_pie()
 {
+  document.getElementById("benefitsYear").innerHTML = "(2016)"; //set to 2016 by default
   // Loads 2016 by default
   d3.csv("Datasets/Coverage_2016.csv", function(data)
   {
@@ -744,6 +750,7 @@ function coverage_pie()
     {
       d3.select("#coverage_2016")
             .on("click", function(){
+              document.getElementById("benefitsYear").innerHTML = "(2016)";
               update(data);
             });
     });
@@ -753,6 +760,7 @@ function coverage_pie()
     {
       d3.select("#coverage_2017")
             .on("click", function(){
+              document.getElementById("benefitsYear").innerHTML = "(2017)";
               update(data);
             });
     });
@@ -762,6 +770,7 @@ function coverage_pie()
     {
       d3.select("#coverage_2018")
             .on("click", function(){
+              document.getElementById("benefitsYear").innerHTML = "(2018)";
               update(data);
             });
     });
@@ -771,6 +780,7 @@ function coverage_pie()
     {
       d3.select("#coverage_2019")
             .on("click", function(){
+              document.getElementById("benefitsYear").innerHTML = "(2019)";
               update(data);
             });
     });
