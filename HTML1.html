@@ -14,15 +14,74 @@
 </head>
 
 <body>
+    <div id="tooltip" class="hidden"></div>
 
     <h1> Mental Health Issues in Tech Industries </h1>
 
     <br><br><br>
 
-    <h2> Willingness to discuss about Health Issues with direct supervisors </h2>
+    <h2> Workers living with Mental Health Issues </h2>
+    <div class="chart_row">
+        <div class="chart1">
+            <h3 id="currentlyYear"> Currently (2016) </h3>
+            <p id="current_pie"></p>
+            <input type="button" id="currentMD_2016" class="std-btn" value="2016">
+            <input type="button" id="currentMD_2017" class="std-btn" value="2017">
+            <input type="button" id="currentMD_2018" class="std-btn" value="2018">
+            <input type="button" id="currentMD_2019" class="std-btn" value="2019">
+        </div>
+
+        <div class="chart2">
+            <h3 id="pastYear"> Had it previously (2016) </h3>
+            <p id="past_pie"></p>
+            <input type="button" id="pastMD_2016" class="std-btn" value="2016">
+            <input type="button" id="pastMD_2017" class="std-btn" value="2017">
+            <input type="button" id="pastMD_2018" class="std-btn" value="2018">
+            <input type="button" id="pastMD_2019" class="std-btn" value="2019">
+        </div>
+    </div>
+    <p id="context">  </p>
+
+    <br><br><br><br><br><br><br><br>
+
+    <h2> Workers have ever been diagnosed with Mental Health Issue (2016-2019) </h2>
+    <p id="diagnosed_stack"></p>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <div class="chart_row">
+        <div class="chart1">
+            <h2> Workplaces Formally Discusses Mental Health Issues </h2>
+            
+            <p id="campaign_pie"></p>
+            <input type="button" id="campaign_2016" class="std-btn" value="2016">
+            <input type="button" id="campaign_2017" class="std-btn" value="2017">
+            <input type="button" id="campaign_2018" class="std-btn" value="2018">
+            <input type="button" id="campaign_2019" class="std-btn" value="2019">
+        </div>
+
+        <div class="chart2">
+            <h2> Workplaces provides Mental Health Benefits </h2>
+            <p id="coverage_pie"></p>
+            <input type="button" id="coverage_2016" class="std-btn" value="2016">
+            <input type="button" id="coverage_2017" class="std-btn" value="2017">
+            <input type="button" id="coverage_2018" class="std-btn" value="2018">
+            <input type="button" id="coverage_2019" class="std-btn" value="2019">
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <h2> Types of Mental Health Issue diagnosed in workers </h2>
+    <p id="mental_stack"></p>
+    
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <h2> Workers' Willingness to discuss about their Mental Health Issues with direct supervisors </h2>
     <div class="willingness">
         <div class="female_willingness">
-            <h3> Females </h3>
+            <h3 id="female"> Female </h3>
             <p id="female_donut">  </p>
             <p>
                 <input type="button" id="BTNfemale_willingness_2016" class="std-btn" value="2016">
@@ -33,7 +92,7 @@
         </div>
     
         <div class="male_willingness">
-            <h3> Males </h3>
+            <h3 id="male"> Male </h3>
             <p id="male_donut"> </p>
             <p>
                 <input type="button" id="BTNmale_willingness_2016" class="std-btn" value="2016">
@@ -44,24 +103,18 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
     
-    <h2> People with mental health conditions worldwide (2016) </h2>
+    <h2> Workers with Mental Health Issues worldwide (2016) </h2>
+    <input type="button" id="world_sort" class="std-btn" value="Sort by Value">
     <p id="world_bar"> </p>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
     
-    <h2> People with mental health conditions in USA (2014) </h2>
+    <h2> Workers with Mental Health Issues in USA (2014) </h2>
     <p id="usa_map"> </p>
 
     <br><br>
-
-
-
-
-    <script>
-      // Javascript Codes in Javascript.js!!!
-    </script>
 
     <br>
     <footer>

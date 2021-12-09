@@ -17,29 +17,82 @@ hr.solid{
 
 h1{
     text-align: center;
-    font-size: 40px;
+    font-size: 45px;
 }
 
 h2{
     font-size: 30px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
 }
 
 h3{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
+    text-align: center;
 }
+
+/* referenced from http://jsfiddle.net/5PENv/ */
+#tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -mox-box-shadow: 4px 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rbga(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+#tooltip.hidden {
+    opacity: 0;
+}
+
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.chart_row{
+    display: flex;
+}
+
+.chart1{
+    display: block;
+    margin-left: auto;
+    margin-right: 0px;
+    text-align: center;
+}
+
+.chart2{
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+    text-align: center;
+}
+
 
 .willingness{
     display: flex;
 }
 
 .female_willingness{
+    display: block;
+    margin-left: auto;
+    margin-right: 0px;
     text-align: center;
-    margin-right: 10%;
 }
 
 .male_willingness{
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -59,15 +112,31 @@ input[type=button]:hover{
     background-color:#08306B;
 }
 
-input[type=button]:focus{
-    background-color:#08306B;
+#diagnosed_stack{
+    text-align: center;
+}
+
+#mental_stack{
+    text-align: center;
+}
+
+#world_sort{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #usa_map{
+    margin-left: auto;
+    margin-right: auto;
     stroke:rgb(224, 224, 224);
     stroke-width: 0.1%;
     width: fit-content;
     border-style: solid;
     border-width: 0.5mm;
     border-color: black;
+}
+
+#context{
+    
 }
