@@ -1053,6 +1053,7 @@ function female_donut()
                 .attr("width", w)
                 .attr("height", h);
 
+    var total;
     
     // outer radius will be specified according to the size of the SVG (i.e., using w).
     var outerRadius = (w/2);
@@ -1128,6 +1129,17 @@ function female_donut()
           .attr("transform", function(d) {
             return "translate(" + arc.centroid(d) + ")";
           });
+
+      // Updates center text
+      arcs.selectAll("text")
+          .filter(function() { return d3.select(this).text() == total })
+          .attr("text-anchor", "middle")
+          .attr("font-size", "40px")
+          .attr('y', 15)
+	        .text(function() {
+            total = d3.sum(data.map(function(d) { return d.count; }));
+            return total;
+          });
     }
 
     // Function for Interpolating from the current angles arcs
@@ -1197,6 +1209,23 @@ function female_donut()
         .attr("font-size", "15px")
         .attr("font-weight", "bold");
 
+    // Add center text
+    arcs.append("text")
+          .attr("text-anchor", "middle")
+          .attr("font-size", "20px")
+          .attr('y', -30)
+	        .text("Total");
+
+    arcs.append("text")
+          .filter(function() { return d3.select(this).text() == 0 })
+          .attr("text-anchor", "middle")
+          .attr("font-size", "40px")
+          .attr('y', 15)
+	        .text(function() {
+            total = d3.sum(data.map(function(d) { return d.count; }));
+            return total;
+          });
+
     var legend = svg.append('g')
                 .attr('class', 'legend')
                 .attr('transform', 'translate(' + (10 + 200) + ', 0)');
@@ -1243,6 +1272,8 @@ function male_donut()
                 .append("svg")
                 .attr("width", w)
                 .attr("height", h);
+
+    var total;
 
     // outer radius will be specified according to the size of the SVG (i.e., using w).
     var outerRadius = w/2;
@@ -1318,6 +1349,17 @@ function male_donut()
           .attr("transform", function(d) {
             return "translate(" + arc.centroid(d) + ")";
           });
+
+      // Updates center text
+      arcs.selectAll("text")
+          .filter(function() { return d3.select(this).text() == total })
+          .attr("text-anchor", "middle")
+          .attr("font-size", "40px")
+          .attr('y', 15)
+	        .text(function() {
+            total = d3.sum(data.map(function(d) { return d.count; }));
+            return total;
+          });
     }
 
     // Function for Interpolating from the current angles arcs
@@ -1385,6 +1427,23 @@ function male_donut()
         .attr("font-family", "sans-serif")
         .attr("font-size", "15px")
         .attr("font-weight", "bold");
+
+    // Add center text
+    arcs.append("text")
+          .attr("text-anchor", "middle")
+          .attr("font-size", "20px")
+          .attr('y', -30)
+	        .text("Total");
+          
+    arcs.append("text")
+          .filter(function() { return d3.select(this).text() == 0 })
+          .attr("text-anchor", "middle")
+          .attr("font-size", "40px")
+          .attr('y', 15)
+	        .text(function() {
+            total = d3.sum(data.map(function(d) { return d.count; }));
+            return total;
+          });
 
     var legend = svg.append('g')
                 .attr('class', 'legend')
@@ -1600,6 +1659,7 @@ function usa_map()
 
     var w = 850;
     var h = 500;
+    var padding = 10;
     
     // Gives the map colours (this range is Purple)
     var color = d3.scaleQuantize()
@@ -1622,7 +1682,7 @@ function usa_map()
     // Sets the color domain for data
     color.domain([
       d3.min(dataset, function(d) {return parseFloat(d.value);}),
-      100 //best option for evening out map colors
+      100 //best option for evening out map colors (effective 2016)
       //d3.max(dataset, function(d) {return parseFloat(d.value);})
     ]);
     
