@@ -11,7 +11,7 @@ Adhering to design principles, including those advocated by Edward Tufte, was a 
 <br><br>
 
 ## Getting Started
-1. Download source code
+1. Download [source code](https://github.com/kazcfz/D3.js-Data-Visualisation/releases)
 2. Open project in Visual Studio Code
 3. Ensure [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) is installed
 4. Run the Live Server and navigate to HTML1.html
